@@ -1,0 +1,43 @@
+.feedPic{
+display: inline-block;
+border: 8px solid grey;
+vertical-align: top;
+margin-left: 50px;
+}
+
+.feedInfo{
+  display: inline-block;
+}
+
+.pictureCont{
+  margin-bottom: 10px;
+}
+
+.barn{
+  margin-top: -30px;
+}
+
+.cultMingle{
+  margin-top: 30px;
+}
+
+.feedAbout{
+  width: 300px;
+}
+
+html{
+  width:100%;
+  height:100%;
+}
+body{
+
+  background-attachment: fixed;
+  background-repeat: none;
+  /* can be treated like a fallback */
+  background-color: black;
+  /* will be "on top", if browser supports it */
+  background-image: linear-gradient(white, white);
+  /* these will reset other properties, like background-position, but it does know what you mean */
+  background: white;
+  background: linear-gradient(white, white);
+}

@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> {{user.displayName}}</title>
+</head>
+<body ng-app='myApp' ng-controller='profileCtrl'>
+<h1 class = "text-center">{{user.displayName}}</h1>
+
+<div class = "edditing text-center">
+  <div class = "pictureCont"> <img ng-src="{{user.profileImage}}" style="max-width:300px"></div>
+  <button ng-if ="currentUser._id === user._id" class = "btn btn-info" ng-hide = "photoForm" ng-click = "showPictureForm()">Change Picture</button>
+  <form ng-submit = updatePicture() ng-show = "photoForm">
+    <input type = "text" placeholder = "Picture Url" ng-model = 'newItem.profileImage'>
+    <button class = "btn btn-info" >Submit</button>
+    <button class = "btn btn-danger" type = "cancel" ng-click = "cancelPhotoUrl()">Cancel</button>
+  </form>
+
+    <button ng-if ="currentUser._id === user._id" class = "btn btn-info" ng-hide = "displayNameForm" ng-click = "showdisplayNameForm()">Edit Username</button>
+  <form ng-submit = updatedisplayName() ng-show = "displayNameForm">
+    <input type = "text" placeholder = "USername" ng-model = 'newItem.displayName'>
+    <button class = "btn btn-info" >Submit</button>
+    <button class = "btn btn-danger" type = "cancel" ng-click = "canceldisplayName()">Cancel</button>
+  </form>
+
+  <h3>My Stocks</h3>
+  <div ng-repeat = 'stock in currentStocks'>
+    <div>Name: {{stocky.Name}}</div>
+    <div>Symbol: {{stocky.Symbol}}</div>
+    <div>Last Price: {{stocky.LastPrice}}</div>
+    <div>Change: {{stocky.Change}}</div>
+  </div>
+<hr>
+  <pre>{{user | json }}</pre>
+ 
+  <div ng-repeat = "post in user.wallposts track by $index">{{post}}</div>
+
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
