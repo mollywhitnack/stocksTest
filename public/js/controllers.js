@@ -47,7 +47,7 @@ app.controller('mainCtrl', function($scope, $state, $auth, $rootScope, $http, $q
     $scope.showSelect = true;
     //console.log("in get stock: " , $scope.stock.name);
     console.log("in get stock: " , name);
-    var url = `dev.markitondemand.com/MODApis/Api/v2/Quote/jsonp?symbol=${name}&callback=JSON_CALLBACK`
+    var url = `//dev.markitondemand.com/MODApis/Api/v2/Quote/jsonp?symbol=${name}&callback=JSON_CALLBACK`
     console.log("url:" , url);
     $http.jsonp(url)
     .success(function(data) {
@@ -123,7 +123,7 @@ app.controller('profileCtrl', function($scope, Profile, $window, ProfileByID, $s
   for(var i =0; i< $rootScope.currentUser.stocks.length; i++){
       //console.log("in get stock: " , $scope.stock.name);
       let sym = $rootScope.currentUser.stocks[i];
-      var url = `dev.markitondemand.com/MODApis/Api/v2/Quote/jsonp?symbol=${sym}&callback=JSON_CALLBACK`
+      var url = `//dev.markitondemand.com/MODApis/Api/v2/Quote/jsonp?symbol=${sym}&callback=JSON_CALLBACK`
       $http.jsonp(url)
       .success(function(data) {
           console.log("data: ", data);
