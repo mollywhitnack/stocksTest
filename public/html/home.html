@@ -5,13 +5,14 @@
   <title>Find a Stock</title>
 </head>
 <body ng-app='myApp' ng-controller='loginCtrl'>
+<h3>Search by Symbol</h3>
   <div class="container">
 
-    <h3>Search a Stock</h3>
+  
 
   <form class="form-horizontal" ng-submit='getStock(stock.name)'>
     <div class="form-group">
-          <input type="stockName" ng-model='stock.name'>
+          <input type="stockName" ng-model='stock.name' required>
        <button type="submit" class="btn btn-default">Submit</button>
       </div>
     </form>
@@ -24,9 +25,11 @@
       <hr>
 
    <form ng-submit = updateStocks()>
-    <button class = "btn btn-info" ng-model = 'newItem.stocks'>Add to My Stocks</button>
+    <button class = "btn btn-primary" ng-model = 'newItem.stocks'>Add to My Stocks</button>
    </form>
     </div>
+    <br>
+    <button class = "btn btn-info" ng-if ='showSelect' ng-click ='getStock(stock.name)'>Refresh</button>
 
   </div>
 </body>

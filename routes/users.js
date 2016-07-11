@@ -36,9 +36,9 @@ router.put('/profile/:id', User.authMiddleware(), (req, res) =>{
     })
 });
 
-router.put('/profile/:userId/addStock', User.authMiddleware(), (req, res) =>{
-    console.log(' add stock req.params.userId:', req.params.userId);
-    User.findByIdAndUpdate(req.params.id, {$push: {"stocks": {symbol :req.body}}}, function(err, numAffected, rawResponse) {
+router.put('/profile/:id/addStock', User.authMiddleware(), (req, res) =>{
+    console.log(' add stock req.params.id:', req.params.id);
+    User.findByIdAndUpdate(req.params.id, {$push: {stocks: req.body}}, {new :true}, (err, savedProf)=>{
       if (err) return res.send("add stock error: " + err);
   })
 });

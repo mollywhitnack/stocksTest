@@ -104,11 +104,16 @@ app.controller('feedCtrl', function($scope, $$state, $state, User) {
     });
 });
 
-app.controller('profileCtrl', function($scope, Profile, ProfileByID, $state, User, $rootScope, WallPost) {
+app.controller('profileCtrl', function($scope, Profile, $window, ProfileByID, $state, User, $rootScope, WallPost) {
   console.log('profileCtrl!');
 
   $rootScope.currentUser = Profile;
   $scope.curretStocks;
+
+
+  $scope.reloadRoute = function() {
+   $window.location.reload();
+  }
 
   $scope.user = ProfileByID || Profile;
 
