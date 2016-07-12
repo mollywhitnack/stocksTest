@@ -38,7 +38,8 @@ router.put('/profile/:id', User.authMiddleware(), (req, res) =>{
 
 router.put('/profile/:id/addStock', User.authMiddleware(), (req, res) =>{
     console.log(' add stock req.params.id:', req.params.id);
-    User.findByIdAndUpdate(req.params.id, {$push: {stocks: req.body}}, {new :true}, (err, savedProf)=>{
+    console.log('req.body:',req.body);
+    User.findByIdAndUpdate(req.params.id, {$push: {'stock': req.body} }, {new :true}, (err, savedProf)=>{
       if (err) return res.send("add stock error: " + err);
   })
 });

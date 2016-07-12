@@ -61,7 +61,6 @@ app.service('User', function($http, $q) {
   }
 
   this.addStock = (user, stock) =>{
-    console.log("here");
     console.log("put to id:", user._id);
     return $http.put(`/api/users/profile/${user._id}/addStock`,  stock)
     .then(res => {

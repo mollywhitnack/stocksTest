@@ -63,7 +63,11 @@ app.service('User', function($http, $q) {
   this.addStock = (user, stock) =>{
     console.log("here");
     console.log("put to id:", user._id);
-    return $http.put(`/api/users/profile/${user._id}/addStock`,  stock)
+    console.log("stock:", stock);
+    let stockObj = {
+      stock: stock
+    };
+    return $http.put(`/api/users/profile/${user._id}/addStock`, stockObj)
     .then(res => {
          console.log("res.data:", res.data);
         return $q.resolve();
